@@ -1,0 +1,1 @@
+"use strict";var a=1,b=3,squares=[1,2,3].map(function(o){return o*o});console.log("test= "+squares),console.log("Working1"),console.log("Working1-2"),console.log("Working2"),console.log("Working2-2");

@@ -1,0 +1,12 @@
+/* line 8, /root/firstgulp/src/sass/style.sass */
+body {
+  background: #333;
+  color: #999; }
+  /* line 12, /root/firstgulp/src/sass/style.sass */
+  body h1, body h2 {
+    color: #ccc; }
+  /* line 14, /root/firstgulp/src/sass/style.sass */
+  body a {
+    color: #2980B9; }
+
+/*# sourceMappingURL=style.css.map */
