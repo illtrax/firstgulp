@@ -8,18 +8,24 @@ const imagemin = require('gulp-imagemin');      //Minify images
 const csso = require('gulp-csso');              //Remove redundant, compression, and restructuring
 const sourcemaps = require('gulp-sourcemaps');  //Maps CSS to SASS files in developer tools
 
+// DEFAULT task is set to run all
+// $ gulp
 gulp.task('default', [
     'html',
     'css',
     'js',
 ]);   
 
+// WATCH automatically runs the task accociated with a file type when it is save.
+// $ gulp watch
 gulp.task('watch', ()=> {
     gulp.watch('src/*.html', ['html']);
     gulp.watch('src/js/*.js', ['js']);
     gulp.watch('src/sass/*.sass', ['css']);
 });
 
+// HTML minifies to clear tabs, line-breaks, and spaces, as well as comments
+// $ gulp html
 gulp.task('html', ()=> {
   return gulp.src('src/*.html')
     .pipe(htmlmin({
@@ -28,6 +34,10 @@ gulp.task('html', ()=> {
     .pipe(gulp.dest('dist'));
 });
 
+/* CSS creats a map between the sass and css for debugging in developers tools,
+/  compiles the sass, minifies it, writes the map,
+/  and saves both a dev copy and aproduction file. */
+// $ gulp css
 gulp.task('css', ()=> {
     gulp.src('src/sass/*.sass')
         .pipe(sourcemaps.init())    
@@ -38,6 +48,8 @@ gulp.task('css', ()=> {
         .pipe(gulp.dest('src/css'));
 });
 
+/* JS compiles ES6 to ES5, joins the javascript files into one, minifies it, then saves dev and live versions. */
+// $ gulp js
 gulp.task('js', ()=> {
     gulp.src([
             'src/js/*.js',
@@ -52,6 +64,7 @@ gulp.task('js', ()=> {
         .pipe(gulp.dest('src/js'));
 });
 
+// still testing
 /*gulp.task('imgMin', ()=> {
     return gulp.src('src/img/**')
         .pipe(imagemin())
